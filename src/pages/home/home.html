@@ -7,8 +7,31 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <!-- <ion-list>
+        <ion-item *ngFor="let i of (data | async)?.results">{{i.artistName}}</ion-item>
+      </ion-list> -->
+  <!-- <ion-grid> -->
+  <ion-searchbar (ionInput)="getData($event)" placeholder="Search iTunes Music Videos"></ion-searchbar>
+
+  <ion-card *ngFor="let item of (data | async)?.results">
+      <!-- <ion-row>
+          <ion-col col-2> -->
+    <ion-card-content>
+      <ion-card-title >
+        {{item.trackName}}
+        <br>
+        <h2>{{item.artistName}}</h2>
+      </ion-card-title>
+  
+        <h2>{{item.collectionName}}</h2>
+        <h2>{{item.primaryGenreName}}</h2>
+        <br>
+        <video controls playsinline poster="{{item.artworkUrl100}}" src="{{item.previewUrl}}"></video>
+
+    </ion-card-content>
+  <!-- </ion-col>
+</ion-row> -->
+  </ion-card>
+
+  <!-- </ion-grid> -->
 </ion-content>
