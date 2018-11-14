@@ -26,6 +26,15 @@
         .catch(err => console.error('Error', err));
     }
   </script>-->
+  <script>
+    var missionbitDebugVal;
+    function debugObservable(name){
+      var missionbitDebugComp = ng.probe(document.querySelector("ion-content").parentElement).componentInstance;
+      missionbitDebugVal = null;
+      console.log(missionbitDebugComp[name]);
+      missionbitDebugComp[name].subscribe(data => {missionbitDebugVal = data});
+    }
+  </script>
 
   <link href="build/main.css" rel="stylesheet">
 
